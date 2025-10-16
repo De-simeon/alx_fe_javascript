@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formBtn.type = "submit";
     formBtn.textContent = "Add Quote";
 
-    form.append(textInput, categoryInput, formBtn);
+    form.appendChild(textInput, categoryInput, formBtn);
 
     form.addEventListener("submit", (e) => {
       e.preventDefault();
