@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const quoteContainer = document.getElementById("quoteDisplay");
   const newQuoteBtn = document.getElementById("newQuote");
-  const addquoteForm = document.getElementById("add-quote-form");
+  const addQuoteForm = document.getElementById("add-quote-form");
 
   // --- Display a random quote ---
   function showRandomQuote() {
@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // --- Add a new quote ---
-  function addquote(event) {
+  function addQuote(event) {
     event.preventDefault();
 
     const textInput = document.getElementById("newQuoteText");
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Event Listeners ---
   newQuoteBtn.addEventListener("click", showRandomQuote);
-  addquoteForm.addEventListener("submit", addquote);
+  addQuoteForm.addEventListener("submit", addQuote);
 
   // Show one quote by default
   showRandomQuote();
