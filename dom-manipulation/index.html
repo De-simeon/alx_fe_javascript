@@ -12,27 +12,12 @@
   <div id="quoteDisplay"></div>
   <button id="newQuote">Show New Quote</button>
 
-  <div class="controls">
-    <button id="newQuote">Show New Quote</button>
-    <select id="categoryFilter"><option value="all">All Categories</option></select>
-    <button id="exportBtn">Export JSON</button>
-
-    <label style="display:inline-flex;align-items:center;gap:6px;">
-      <input id="importFile" type="file" accept=".json" style="display:none;">
-      <button id="importBtn" type="button">Import JSON</button>
-    </label>
-
-    <button id="clearLocal">Clear Saved Quotes</button>
-  </div>
-
-
   <form id="add-quote-form">
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
     <button onclick="addQuote()">Add Quote</button>
   </form>
-
-
+  
   <script src="script.js"></script>
 </body>
 
