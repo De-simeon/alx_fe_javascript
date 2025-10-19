@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let quotes = [
+  // --- Storage keys ---
+  const LS_KEY = "dqg_quotes_v1";         // localStorage key for quotes (persist across sessions)
+  const SESSION_LAST_IDX = "dqg_last_index"; // sessionStorage key for last shown quote index
+
+  const Defaultquotes = [
     {
       text: "The only limit to our realization of tomorrow is our doubts of today.",
       category: "Motivation"
@@ -14,8 +18,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   ];
 
+  // --- App state ---
+  let quotes = loadQuotesFromLocal();
+  let filteredCategory = "all";
+
+  // --- DOM refs ---
   const quoteContainer = document.getElementById("quoteDisplay");
-  const button = document.getElementById("newQuote");
+  const newQuoteBtn = document.getElementById("newQuote");
+  const addQuoteForm = document.getElementById("add-quote-form");
+  const textInput = document.getElementById("newQuoteText");
+  const categoryInput = document.getElementById("newQuoteCategory");
+  const exportBtn = document.getElementById("exportBtn");
+  const importFileInput = document.getElementById("importFile");
+  const importBtn = document.getElementById("importBtn");
+  const clearLocalBtn = document.getElementById("clearLocal");
+  const categoryFilter = document.getElementById("categoryFilter");
+  const formMsg = document.getElementById("formMsg");
+
+  // --- Initialization ---
+  populateCategoryFilter();
+  showRandomQuote(); // show an initial quote
 
   function showRandomQuote() {
     if (quotes.length === 0) {
@@ -56,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.appendChild(textInput, categoryInput, formBtn);
 
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+    form.addEventListener("submit", (ev) => {
+      ev.preventDefault();
 
       const newQuote = textInput.value.trim();
       const newCategory = categoryInput.value.trim();
