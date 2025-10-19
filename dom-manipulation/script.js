@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
       });
-      showSyncMessage("Quote synced to server.");
+      showSyncMessage("Quotes synced with server!");
     } catch {
       showSyncMessage("Failed to sync quote.");
     }
